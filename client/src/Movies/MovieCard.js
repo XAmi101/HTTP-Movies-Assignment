@@ -1,4 +1,6 @@
 import React from 'react';
+import {Route} from "react-router-dom"
+import UpdateMovieForm from "./UpdateMovieForm";
 
 const MovieCard = props => {
   const { title, director, metascore, stars } = props.movie;
@@ -18,6 +20,12 @@ const MovieCard = props => {
           {star}
         </div>
       ))}
+      <Route
+        path="/update-item/:id"
+        render={props => {
+          return <UpdateMovieForm {...props} movie={props.movie} />
+        }}
+      />
     </div>
   );
 };
